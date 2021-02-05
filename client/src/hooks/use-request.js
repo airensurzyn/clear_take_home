@@ -14,6 +14,7 @@ const useRequest = ({ url, method, body, onSuccess }) => {
 			return response.data;
 		} catch (error) {
 			console.log(error.response.data);
+			setErrors(error.response.data);
 		}
 	};
 

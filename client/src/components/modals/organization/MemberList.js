@@ -2,7 +2,7 @@ import React from 'react';
 import { List, ListItem, ListItemText } from '@material-ui/core';
 import colors from '../../../styles/colors';
 
-const MemberList = ({ organization, members }) => {
+const MemberList = ({ organization, members, memberErrors }) => {
 	const filterMembersByOrganization = (organizationId, unfilteredList) => {
 		return unfilteredList.filter(
 			(member) =>

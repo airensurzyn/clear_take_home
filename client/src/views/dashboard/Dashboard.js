@@ -27,7 +27,7 @@ const Dashboard = (props) => {
 		organizationId: '',
 	});
 
-	const { doRequest /*, errors*/ } = useRequest(getOrganizations());
+	const { doRequest, errors } = useRequest(getOrganizations());
 
 	useEffect(() => {
 		const getOrganizations = async () => {
@@ -49,12 +49,18 @@ const Dashboard = (props) => {
 				<Grid container>
 					<Grid item>
 						<Paper>
-							<OrganizationTable
-								organizations={organizations ? organizations : []}
-								isLoading={isLoading}
-								setModal={setModal}
-								modal={modal}
-							/>
+							{errors ? (
+								<span className={classes.errorMessage}>
+									Error loading organization data
+								</span>
+							) : (
+								<OrganizationTable
+									organizations={organizations ? organizations : []}
+									isLoading={isLoading}
+									setModal={setModal}
+									modal={modal}
+								/>
+							)}
 						</Paper>
 					</Grid>
 				</Grid>

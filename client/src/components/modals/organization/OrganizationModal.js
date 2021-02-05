@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
 			backgroundColor: `${colors.white}`,
 		},
 	},
+	errorMessage: {
+		color: 'red',
+	},
 }));
 
 const OrganizationModal = (props) => {
@@ -47,10 +50,10 @@ const OrganizationModal = (props) => {
 	const [members, setMembers] = useState([]);
 	const [recentlyFetched, setRecentlyFetched] = useState(false);
 	const [membersRecentlyFetched, setMembersRecentlyFetched] = useState(false);
-	const { doRequest: getOrgByIdRequest /*, errors*/ } = useRequest(
+	const { doRequest: getOrgByIdRequest, errors: orgErrors } = useRequest(
 		getOrganizationById(modal.organizationId)
 	);
-	const { doRequest: getMembersRequest /*, errors*/ } = useRequest(
+	const { doRequest: getMembersRequest, errors: memberErrors } = useRequest(
 		getMembers()
 	);
 
@@ -104,7 +107,17 @@ const OrganizationModal = (props) => {
 						>
 							Details
 						</div>
-						<OrganizationModalTable organization={organization} />
+
+						{orgErrors ? (
+							<span className={classes.errorMessage}>
+								Error loading organizations
+							</span>
+						) : (
+							<OrganizationModalTable
+								organization={organization}
+								orgErrors={orgErrors}
+							/>
+						)}
 					</Grid>
 					<Grid item xs={12} sm={5}>
 						<div
@@ -117,12 +130,19 @@ const OrganizationModal = (props) => {
 							Members
 						</div>
 						<div className={classes.memberListContainer}>
-							<MemberList
-								organization={organization}
-								recentlyFetched={membersRecentlyFetched}
-								setRecentlyFetched={setMembersRecentlyFetched}
-								members={members}
-							/>
+							{memberErrors ? (
+								<span className={classes.errorMessage}>
+									Error loading members
+								</span>
+							) : (
+								<MemberList
+									organization={organization}
+									recentlyFetched={membersRecentlyFetched}
+									setRecentlyFetched={setMembersRecentlyFetched}
+									members={members}
+									memberErrors={memberErrors}
+								/>
+							)}
 						</div>
 					</Grid>
 				</Grid>
