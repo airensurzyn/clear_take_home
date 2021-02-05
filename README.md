@@ -28,6 +28,6 @@ The server folder is the backend necessary to run the project on Google Cloud. I
 
 - Creates a simple SPA that features a table displaying results retrieved from CLEAR's mock api
 - Opens a modal displaying detailed information about organizations
-- Shows members affiliated with the organizations in the modal
+  - Shows members affiliated with the organizations in the modal
 - Creates a map of the US which uses long/lat-based markers fed from a JSON file
   - I tried to map the addresses/zip codes from the organization objects, but I don't think they are real and was unable to get real long/lat coordinates
