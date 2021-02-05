@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './views/dashboard/Dashboard';
 import Map from './views/map/Map';
-import Header from './components/header';
+import Header from './components/header/header';
 
 function App() {
 	return (

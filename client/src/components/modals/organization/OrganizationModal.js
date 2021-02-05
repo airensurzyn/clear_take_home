@@ -50,6 +50,7 @@ const OrganizationModal = (props) => {
 	const [members, setMembers] = useState([]);
 	const [recentlyFetched, setRecentlyFetched] = useState(false);
 	const [membersRecentlyFetched, setMembersRecentlyFetched] = useState(false);
+
 	const { doRequest: getOrgByIdRequest, errors: orgErrors } = useRequest(
 		getOrganizationById(modal.organizationId)
 	);

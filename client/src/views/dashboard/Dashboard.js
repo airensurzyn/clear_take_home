@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Paper, makeStyles } from '@material-ui/core';
-import OrganizationTable from '../../components/tables/organizations/OrganizationTable';
+import OrganizationTable from '../../components/tables/organization/OrganizationTable';
 import OrganizationModal from '../../components/modals/organization/OrganizationModal';
 import useRequest from '../../hooks/use-request';
 import { getOrganizations } from '../../api/requests';

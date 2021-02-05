@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Button, makeStyles } from '@material-ui/core';
-import colors from '../styles/colors';
+import colors from '../../styles/colors';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
