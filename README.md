@@ -31,3 +31,10 @@ The server folder is the backend necessary to run the project on Google Cloud. I
   - Shows members affiliated with the organizations in the modal
 - Creates a map of the US which uses long/lat-based markers fed from a JSON file
   - I tried to map the addresses/zip codes from the organization objects, but I don't think they are real and was unable to get real long/lat coordinates
+
+### Implementation Notes
+
+- Use a custom hook to make api calls. Makes for a modular and consistent fetch strategy.
+- The dashboard and map components felt like separate pages, so I split them into separate routes
+- Member list inside modal is scrollable
+- Map was put together with the `react simple maps` library
