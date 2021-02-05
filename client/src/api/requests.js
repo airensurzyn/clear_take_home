@@ -20,4 +20,11 @@ const getMembers = () => {
 	};
 };
 
-export { getOrganizations, getOrganizationById, getMembers };
+const getGeocodes = () => {
+	return {
+		url: '/api/organizations/geocodes',
+		method: 'get',
+	};
+};
+
+export { getOrganizations, getOrganizationById, getMembers, getGeocodes };

@@ -1,0 +1,13 @@
+{
+  "name": "clear_take_home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"deploy": "npm run build --prefix ./client && gcloud app deploy",
+		"start": "node ./server/index.js"
+	},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
