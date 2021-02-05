@@ -1,6 +1,6 @@
 import React from 'react';
 import { TableRow, TableCell, Checkbox, makeStyles } from '@material-ui/core';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	centerAlignedCell: {
 		textAlign: 'center',
+		width: '100px',
 	},
 }));
 

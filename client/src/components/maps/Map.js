@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Grid, makeStyles } from '@material-ui/core';
+import React from 'react';
+import { makeStyles } from '@material-ui/core';
 import { geoCentroid } from 'd3-geo';
 import {
 	ComposableMap,
@@ -10,8 +10,6 @@ import {
 } from 'react-simple-maps';
 import allStates from '../../assets/allStates.json';
 import geocodes from '../../assets/geocodes.json';
-import { getGeocodes } from '../../api/requests';
-import useRequest from '../../hooks/use-request';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -40,23 +38,6 @@ const offsets = {
 
 const Map = (props) => {
 	const classes = useStyles();
-	const [recentlyFetched, setRecentlyFetched] = useState(false);
-	const [geocodeOrganizations, setGeocodeOrganizations] = useState([]);
-
-	const { doRequest /*, errors*/ } = useRequest(getGeocodes());
-
-	useEffect(() => {
-		const getMarkers = async () => {
-			let res = await doRequest();
-			console.log(res);
-			setGeocodeOrganizations(res);
-		};
-
-		if (!recentlyFetched) {
-			getMarkers();
-			setRecentlyFetched(true);
-		}
-	}, []);
 
 	const mapGeocodeOrganizations = () => {
 		return geocodes.map((geocode) => {
@@ -118,7 +99,7 @@ const Map = (props) => {
 							</>
 						)}
 					</Geographies>
-					{geocodeOrganizations ? mapGeocodeOrganizations() : ''}
+					{mapGeocodeOrganizations()}
 				</ComposableMap>
 			</div>
 		</div>

@@ -12,6 +12,3 @@ resources:
 
 network:
   session_affinity: true
-
-includes:
-  - server/config/env_variables.yaml

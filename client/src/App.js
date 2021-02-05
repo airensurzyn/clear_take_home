@@ -1,17 +1,17 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from './views/Home';
-import Map from './components/maps/Map';
+import Dashboard from './views/dashboard/Dashboard';
+import Map from './views/map/Map';
 import Header from './components/header';
 
 function App() {
 	return (
 		<div className="App">
-			<Header />
 			<BrowserRouter>
+				<Header />
 				<Switch>
 					<Route exact path={'/map'} component={Map}></Route>
-					<Route path={'/*'} component={Home}></Route>
+					<Route path={'/*'} component={Dashboard}></Route>
 				</Switch>
 			</BrowserRouter>
 		</div>

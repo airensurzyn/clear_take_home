@@ -1,17 +1,17 @@
 import React from 'react';
 import { TableHead, TableRow, TableCell, makeStyles } from '@material-ui/core';
-import colors from '../../styles/colors';
 
 const useStyles = makeStyles((theme) => ({
 	leftAlignedCell: {
 		fontWeight: 'bold',
 		textAlign: 'left',
-		color: `${colors.purple}`,
+		fontSize: '1rem',
 	},
 	centerAlignedCell: {
 		fontWeight: 'bold',
 		textAlign: 'center',
-		color: `${colors.purple}`,
+		fontSize: '1rem',
+		width: '100px',
 	},
 }));
 

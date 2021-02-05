@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-		"deploy": "npm run build --prefix ./client && gcloud app deploy",
-		"start": "node ./server/index.js"
-	},
+    "deploy": "npm run build --prefix ./client && gcloud app deploy",
+    "start": "node ./server/index.js"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
 }

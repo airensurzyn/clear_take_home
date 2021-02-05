@@ -1,6 +1,7 @@
 import React from 'react';
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid, Button, makeStyles } from '@material-ui/core';
 import colors from '../styles/colors';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -8,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
 		height: '70px',
 		display: 'flex',
 		backgroundColor: `${colors.gray}`,
+
 		paddingLeft: theme.spacing(4),
 		paddingRight: theme.spacing(4),
 		alignItems: 'center',
@@ -17,6 +19,14 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		justifyContent: 'flex-start',
 	},
+	logoButton: {
+		fontWeight: 'bold',
+		fontSize: '1.25rem',
+		color: `${colors.purple}`,
+		'&:hover': {
+			backgroundColor: `${colors.gray}`,
+		},
+	},
 }));
 
 const Header = () => {
@@ -24,9 +34,29 @@ const Header = () => {
 	return (
 		<Grid container className={classes.root}>
 			<Grid item className={classes.logo}>
-				CLEAR
+				<Button
+					disableRipple={true}
+					component={Link}
+					to={{
+						pathname: '/',
+					}}
+					className={classes.logoButton}
+				>
+					CLEAR TAKE HOME
+				</Button>
 			</Grid>
-			<Grid item>Airen</Grid>
+			<Grid item>
+				<Button
+					disableRipple={true}
+					component={Link}
+					to={{
+						pathname: '/',
+					}}
+					className={classes.logoButton}
+				>
+					HOME
+				</Button>
+			</Grid>
 		</Grid>
 	);
 };

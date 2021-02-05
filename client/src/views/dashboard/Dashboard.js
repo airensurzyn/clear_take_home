@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Paper, makeStyles } from '@material-ui/core';
-import OrganizationTable from '../components/tables/OrganizationTable';
-import OrganizationModal from '../components/modals/organization/OrganizationModal';
-import useRequest from '../hooks/use-request';
-import { getOrganizations } from '../api/requests';
+import OrganizationTable from '../../components/tables/organizations/OrganizationTable';
+import OrganizationModal from '../../components/modals/organization/OrganizationModal';
+import useRequest from '../../hooks/use-request';
+import { getOrganizations } from '../../api/requests';
+import colors from '../../styles/colors';
+import DashboardTitle from './DashboardTitle';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		height: '100%',
 		width: '100%',
-		backgroundColor: '#fff',
+		backgroundColor: `${colors.white}`,
 		paddingTop: '90px',
-
 		justifyContent: 'center',
 	},
-	mainContent: {},
 }));
 
-const Home = (props) => {
+const Dashboard = (props) => {
 	const classes = useStyles();
 	const [recentlyFetched, setRecentlyFetched] = useState(false);
 	const [organizations, setOrganizations] = useState(null);
@@ -45,9 +45,9 @@ const Home = (props) => {
 	return (
 		<Grid container className={classes.root}>
 			<Grid item className={classes.mainContent}>
+				<DashboardTitle />
 				<Grid container>
 					<Grid item>
-						<h2>Partner Organizations</h2>
 						<Paper>
 							<OrganizationTable
 								organizations={organizations ? organizations : []}
@@ -64,4 +64,4 @@ const Home = (props) => {
 	);
 };
 
-export default Home;
+export default Dashboard;

@@ -45,7 +45,6 @@ const OrganizationModal = (props) => {
 	const classes = useStyles();
 	const [organization, setOrganization] = useState({});
 	const [members, setMembers] = useState([]);
-	const [isLoading, setIsLoading] = useState(false);
 	const [recentlyFetched, setRecentlyFetched] = useState(false);
 	const [membersRecentlyFetched, setMembersRecentlyFetched] = useState(false);
 	const { doRequest: getOrgByIdRequest /*, errors*/ } = useRequest(
@@ -59,7 +58,6 @@ const OrganizationModal = (props) => {
 		const getOrgById = async () => {
 			let response = await getOrgByIdRequest();
 			setOrganization(response);
-			setIsLoading(false);
 		};
 
 		const getMembersByOrgId = async () => {
@@ -68,7 +66,6 @@ const OrganizationModal = (props) => {
 		};
 
 		if (!recentlyFetched && modal.isOpen) {
-			setIsLoading(true);
 			getOrgById();
 			getMembersByOrgId();
 			setRecentlyFetched(true);
